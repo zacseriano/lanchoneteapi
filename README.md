@@ -1,2 +1,2 @@
 # lanchoneteapi
-API REST Java para Lanchonete
+API REST em Java para Lanchonete
