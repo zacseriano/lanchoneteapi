@@ -63,16 +63,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception{
 		httpSecurity.csrf().disable().authorizeRequests()
-		.antMatchers("/api/cliente/**").hasRole("CLIENTE")
-		.antMatchers("/api/gestor/**").hasRole("GESTOR")
+		.antMatchers("/cliente/**").hasRole("CLIENTE")
+		.antMatchers("/gestor/**").hasRole("GESTOR")
 		.antMatchers(AUTH_WHITELIST).permitAll()
         .antMatchers("/**/*").denyAll()		
-		.antMatchers(HttpMethod.POST, "/api/cadastrarCliente").permitAll()
-		.antMatchers(HttpMethod.POST, "/api/cadastrarGestor").permitAll()
-		.antMatchers(HttpMethod.POST, "/api/login").permitAll()
+		.antMatchers(HttpMethod.POST, "/cadastrarCliente").permitAll()
+		.antMatchers(HttpMethod.POST, "/cadastrarGestor").permitAll()
+		.antMatchers(HttpMethod.POST, "/login").permitAll()
 		.anyRequest().authenticated().and()
 		.exceptionHandling().and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-	}	
+	}		
 }
