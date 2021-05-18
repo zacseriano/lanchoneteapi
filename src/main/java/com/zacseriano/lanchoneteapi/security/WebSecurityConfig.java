@@ -69,7 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .antMatchers("/**/*").denyAll()		
 		.antMatchers(HttpMethod.POST, "/api/cadastrarCliente").permitAll()
 		.antMatchers(HttpMethod.POST, "/api/cadastrarGestor").permitAll()
-		.antMatchers(HttpMethod.POST, "/api/authenticate").permitAll()
+		.antMatchers(HttpMethod.POST, "/api/login").permitAll()
 		.anyRequest().authenticated().and()
 		.exceptionHandling().and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
