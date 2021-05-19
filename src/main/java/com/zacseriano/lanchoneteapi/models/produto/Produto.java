@@ -96,9 +96,9 @@ public class Produto implements Serializable{
 		BigDecimal zero = new BigDecimal("0");
 		int resultado = this.getEstoque().subtract(quantidade).compareTo(zero);
 		if(resultado == -1)
-			return false; //SE O ESTOQUE NAO SUPRE O PEDIDO ELE RETORNA FALSO
+			return true; 
 		else
-			return true;					
+			return false;					
 	}
 	
 	/**
